@@ -16,7 +16,7 @@ Hyperledger Fabric is widely used in **finance, supply chains, healthcare, and g
 
 ## 🚀 Hyperledger Fabric Projects
 
-### 1️⃣ Hello World: Getting Started with Hyperledger Fabric
+#### 1️⃣ Hello World: Getting Started with Hyperledger Fabric
 
 The **Hello World** project is a simple introduction to **Hyperledger Fabric Smart Contracts**. It helps developers understand:
 
@@ -29,7 +29,7 @@ This project is the foundation for building more complex blockchain applications
 
 ---
 
-### 2️⃣ Voting System: Secure Blockchain-Based Elections
+#### 2️⃣ Voting System: Secure Blockchain-Based Elections
 
 A **decentralized voting system** built on Hyperledger Fabric ensures **fairness, transparency, and security** in elections. Key features:
 
@@ -42,7 +42,7 @@ This system eliminates traditional voting fraud and enhances trust in elections.
 
 ---
 
-### 3️⃣ Food Token System: Digital Token Management on Hyperledger Fabric
+#### 3️⃣ Food Token System: Digital Token Management on Hyperledger Fabric
 
 The **Food Token System** leverages **Hyperledger Fabric** to manage and redeem **food tokens** securely. It consists of:
 
