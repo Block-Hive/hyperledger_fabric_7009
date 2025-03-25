@@ -6,7 +6,7 @@ This repository contains the **Food Token System** built using **Hyperledger Fab
 
 The project is too large for GitHub, so you can download it from the following cloud storage link:
 
-🔗 **[Download Food Token System](YOUR_CLOUD_LINK_HERE)**
+🔗 **[3food-token-system](https://drive.google.com/drive/folders/1_09C-lM3jiwEFRkk_L-TlAiyTfEuDQWI?usp=sharing)**
 
 ## 🚀 Getting Started
 
@@ -18,11 +18,8 @@ Ensure you have the following installed:
 - [Node.js](https://nodejs.org/)
 - [Hyperledger Fabric Binaries](https://hyperledger-fabric.readthedocs.io/en/latest/install.html)
 
-### 2️⃣ Clone the Repository
-```sh
-git clone https://github.com/YOUR_GITHUB_USERNAME/food-token-system.git
-cd food-token-system
-```
+### 2️⃣ Download the folder mentioned in **[📂 3food-token-system](https://drive.google.com/drive/folders/1_09C-lM3jiwEFRkk_L-TlAiyTfEuDQWI?usp=sharing)**
+
 
 ### 3️⃣ Start the Hyperledger Fabric Network
 ```sh
@@ -59,11 +56,7 @@ streamlit run app.py
 2. Run `pip install opencv-python-headless streamlit-webrtc av`.
 3. Restart the Streamlit app.
 
-## 📜 License
-This project is licensed under the **MIT License**.
-
 ## 🤝 Contributing
 Feel free to fork and submit pull requests!
 
----
-**Made with ❤️ for secure food token transactions using blockchain!**
+
