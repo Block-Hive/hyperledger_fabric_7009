@@ -22,22 +22,22 @@ If not, refer to the **[Hyperledger Fabric Setup Guide](https://github.com/hyper
 
 The following **one shell script** contains **all necessary steps** to execute both projects **separately**:
 
-# ==========================
-# 1️⃣ HELLO WORLD SETUP
-# ==========================
+### ==========================
+### 1️⃣ HELLO WORLD SETUP
+### ==========================
 
 
-# Step 1: Navigate to the Fabric Test Network
+### Step 1: Navigate to the Fabric Test Network
 ```bash
 cd ~/fabric-samples/test-network 
 ```
 
-# Step 2: Start Fabric Network (if not running) adn create channel
+### Step 2: Start Fabric Network (if not running) adn create channel
 
 ```bash
 ./network.sh up createChannel
 ```
-# Step 3: Deploy Hello World Smart Contract
+### Step 3: Deploy Hello World Smart Contract
 
 ```bash
 ./network.sh deployCC -ccn hello -ccp ../chaincode/hello-world -ccl go
@@ -45,7 +45,7 @@ cd ~/fabric-samples/test-network
 
 ![Network-up = chaincode installed](images/BlockchainHelloW1.png)
 
-# Step 4: Interact with Hello World Smart Contract
+### Step 4: Interact with Hello World Smart Contract
 
 ```bash
 peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
@@ -54,30 +54,30 @@ peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
 echo "✅ Hello World Smart Contract Deployed Successfully!"
 
 
-# ==========================
-# 2️⃣ VOTING SYSTEM SETUP
-# ==========================
+### ==========================
+### 2️⃣ VOTING SYSTEM SETUP
+### ==========================
 
 echo "🚀 Setting up Voting System Smart Contract..."
 
-# Step 1: Navigate to the Fabric Test Network
+### Step 1: Navigate to the Fabric Test Network
 ```bash
 cd ~/fabric-samples/test-network 
 ```
 
-# Step 2: Start Fabric Network (if not running) adn create channel
+### Step 2: Start Fabric Network (if not running) adn create channel
 
 ```bash
 ./network.sh up createChannel
 ```
 
-# Step 3: Deploy Voting System Smart Contract
+### Step 3: Deploy Voting System Smart Contract
 ```bash
 ./network.sh deployCC -ccn voting -ccp ../chaincode/voting -ccl go
 ```
 ![Network-up = chaincode installed](images/BlockchainvotingW1.png)
 
-## Step 4.1: Initialize Ledger (Optional)
+#### Step 4.1: Initialize Ledger (Optional)
 ```bash
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
   --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -87,7 +87,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 
 ```
 
-## Step 4.2: Register Voters
+#### Step 4.2: Register Voters
 ```bash
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
   --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -99,7 +99,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 ![Network-up = chaincode installed](images/BlockchainvotingVoters.png)
 
 
-## Step 4.3: Register Candidates
+#### Step 4.3: Register Candidates
 ```bash
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
   --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -111,7 +111,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 ![Network-up = chaincode installed](images/BlockchainCandidates.png)
 
 
-## Step 4.4: Verify Registered Voters & Candidates
+#### Step 4.4: Verify Registered Voters & Candidates
 ```bash
 peer chaincode query -C mychannel -n voting -c '{"Args":["GetAllData"]}'
 ```
@@ -121,7 +121,7 @@ peer chaincode query -C mychannel -n voting -c '{"Args":["GetAllData"]}'
 
 
 
-## Step 4.5: Cast Votes
+#### Step 4.5: Cast Votes
 ```bash
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
   --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
@@ -134,7 +134,7 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 
 
 
-## Step 4.5: Verify Votes
+#### Step 4.5: Verify Votes
 ```bash
 peer chaincode query -C mychannel -n voting -c '{"Args":["GetAllData"]}'
 ```
@@ -142,9 +142,9 @@ peer chaincode query -C mychannel -n voting -c '{"Args":["GetAllData"]}'
 ![Network-up = chaincode installed](images/BlockchainvotingVoting3.png)
 
 
-# ==========================
-# SHUTDOWN INSTRUCTIONS
-# ==========================
+### ==========================
+### SHUTDOWN INSTRUCTIONS
+### ==========================
 ```bash
 cd fabric-samples/test-network && ./network.sh down"
 ```
