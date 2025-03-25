@@ -40,7 +40,9 @@ echo "🔄 Starting Fabric Test Network..."
 
 # Step 3: Deploy Hello World Smart Contract
 echo "📜 Deploying Hello World Smart Contract..."
-./network.sh deployCC -ccn helloworld -ccp ../hello-world/chaincode -ccl go
+./network.sh deployCC -ccn hello -ccp ../chaincode/hello-world -ccl go
+
+![Network-up = chaincode installed](images/BlockchainHelloW1.png)
 
 # Step 4: Interact with Hello World Smart Contract
 echo "📝 Initializing Hello World Ledger..."
@@ -48,8 +50,10 @@ peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.exa
 --tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem" \
 -C mychannel -n helloworld -c '{"function":"InitLedger","Args":[]}'
 
+![initialised Hello World](images/BlockchainHelloW2.png)
+
 echo "📢 Querying Hello World Ledger..."
-peer chaincode query -C mychannel -n helloworld -c '{"function":"GetMessage","Args":[]}'
+peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
 
 echo "✅ Hello World Smart Contract Deployed Successfully!"
 
