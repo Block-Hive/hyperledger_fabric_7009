@@ -52,7 +52,7 @@ cd ~/fabric-samples/test-network
 peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
 ```
 ![initialised Hello World](images/BlockchainHelloW1.png)
-echo "✅ Hello World Smart Contract Deployed Successfully!"
+
 
 
 ### ==========================
