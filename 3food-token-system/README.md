@@ -4,7 +4,7 @@ This repository contains the **Food Token System** built using **Hyperledger Fab
 
 ## 📂 Download Project Folder
 
-The project is too large for GitHub, so you can download it by clicking on the folder name.
+The project is too large for GitHub, so you can download it by clicking on the link.
 
 🔗 **[3food-token-system](https://drive.google.com/drive/folders/1_09C-lM3jiwEFRkk_L-TlAiyTfEuDQWI?usp=sharing)**
 
