@@ -67,7 +67,7 @@ Ensure you have the following installed:
 
 ---
 
-## 📌 One-Command Setup Script for Hyperledger Fabric
+## 📌 Command Setup Script for Hyperledger Fabric
 
 To **download, set up, and run Hyperledger Fabric**, execute the following **shell script**:
 
@@ -84,18 +84,5 @@ cd fabric-samples/test-network || { echo "Directory not found!"; exit 1; }
 # Step 3: Start the Test Network
 echo "Starting the Fabric Test Network..."
 ./network.sh up
-
-# Step 4: Deploy the Sample Smart Contract
-echo "Deploying the Sample Smart Contract..."
-./network.sh deployCC -ccn basic -ccp ../asset-transfer-basic/chaincode-go -ccl go
-
-# Step 5: Interact with the Blockchain
-echo "Initializing Ledger..."
-peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
---tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem" \
--C mychannel -n basic -c '{"function":"InitLedger","Args":[]}'
-
-echo "Querying Ledger..."
-peer chaincode query -C mychannel -n basic -c '{"function":"GetAllAssets","Args":[]}'
 
 echo "✅ Hyperledger Fabric is up and running!"
