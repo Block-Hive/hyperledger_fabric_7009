@@ -22,9 +22,6 @@ If not, refer to the **[Hyperledger Fabric Setup Guide](https://github.com/hyper
 
 The following **one shell script** contains **all necessary steps** to execute both projects **separately**:
 
-```sh
-#!/bin/bash
-
 # ==========================
 # 1️⃣ HELLO WORLD SETUP
 # ==========================
