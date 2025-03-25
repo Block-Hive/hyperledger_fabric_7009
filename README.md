@@ -69,7 +69,7 @@ Ensure you have the following installed:
 
 ## 📌 Command Setup Script for Hyperledger Fabric
 
-## To **download, set up, and run Hyperledger Fabric**, execute the following **shell script**:
+### To **download, set up, and run Hyperledger Fabric**, execute the following **shell script**:
 
 #### Step 1: Download Hyperledger Fabric Binaries & Samples
 ```bash
