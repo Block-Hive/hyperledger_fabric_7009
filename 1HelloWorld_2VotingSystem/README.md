@@ -27,17 +27,17 @@ The following **one shell script** contains **all necessary steps** to execute b
 ### ==========================
 
 
-### Step 1: Navigate to the Fabric Test Network
+#### Step 1: Navigate to the Fabric Test Network
 ```bash
 cd ~/fabric-samples/test-network 
 ```
 
-### Step 2: Start Fabric Network (if not running) adn create channel
+#### Step 2: Start Fabric Network (if not running) adn create channel
 
 ```bash
 ./network.sh up createChannel
 ```
-### Step 3: Deploy Hello World Smart Contract
+#### Step 3: Deploy Hello World Smart Contract
 
 ```bash
 ./network.sh deployCC -ccn hello -ccp ../chaincode/hello-world -ccl go
@@ -45,7 +45,7 @@ cd ~/fabric-samples/test-network
 
 ![Network-up = chaincode installed](images/BlockchainHelloW1.png)
 
-### Step 4: Interact with Hello World Smart Contract
+#### Step 4: Interact with Hello World Smart Contract
 
 ```bash
 peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
@@ -58,20 +58,19 @@ echo "✅ Hello World Smart Contract Deployed Successfully!"
 ### 2️⃣ VOTING SYSTEM SETUP
 ### ==========================
 
-echo "🚀 Setting up Voting System Smart Contract..."
 
-### Step 1: Navigate to the Fabric Test Network
+#### Step 1: Navigate to the Fabric Test Network
 ```bash
 cd ~/fabric-samples/test-network 
 ```
 
-### Step 2: Start Fabric Network (if not running) adn create channel
+#### Step 2: Start Fabric Network (if not running) adn create channel
 
 ```bash
 ./network.sh up createChannel
 ```
 
-### Step 3: Deploy Voting System Smart Contract
+#### Step 3: Deploy Voting System Smart Contract
 ```bash
 ./network.sh deployCC -ccn voting -ccp ../chaincode/voting -ccl go
 ```
