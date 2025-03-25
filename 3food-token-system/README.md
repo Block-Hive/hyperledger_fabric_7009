@@ -18,7 +18,7 @@ Ensure you have the following installed:
 - [Node.js](https://nodejs.org/)
 - [Hyperledger Fabric Binaries](https://hyperledger-fabric.readthedocs.io/en/latest/install.html)
 
-#### 2️⃣ Download the folder mentioned in **[📂 3food-token-system](https://drive.google.com/drive/folders/1_09C-lM3jiwEFRkk_L-TlAiyTfEuDQWI?usp=sharing)**
+#### 2️⃣ Download the folder mentioned above.
 
 
 #### 3️⃣ Start the Hyperledger Fabric Network
