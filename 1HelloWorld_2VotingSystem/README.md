@@ -15,6 +15,7 @@ Both projects use **Smart Contracts (Chaincode)** to interact with the Fabric le
 
 Ensure you have already **installed and set up Hyperledger Fabric** using the test network.  
 If not, refer to the **[Hyperledger Fabric Setup Guide](https://github.com/hyperledger/fabric-samples)**.
+and make sure to download the folder **[1HelloWorld_2VotingSystem](https://drive.google.com/drive/folders/1MRg-ccPb-hdPWKfznppQ2xdVPe-lzzS-?usp=sharing)**.
 
 ---
 
