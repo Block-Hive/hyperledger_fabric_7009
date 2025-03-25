@@ -18,7 +18,7 @@ If not, refer to the **[Hyperledger Fabric Setup Guide](https://github.com/hyper
 
 #### 📂 Download Project Folder
 
-The project is too large for GitHub, so you can download it by clicking on the folder name.
+The project is too large for GitHub, so you can download it by clicking on the link.
 
 🔗 **[1HelloWorld_2VotingSystem](https://drive.google.com/drive/folders/15zjGtQ45ALPX7HvdYBxz29cvn00Ib1Yg?usp=sharing)**.
 
