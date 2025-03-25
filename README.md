@@ -69,20 +69,19 @@ Ensure you have the following installed:
 
 ## 📌 Command Setup Script for Hyperledger Fabric
 
-To **download, set up, and run Hyperledger Fabric**, execute the following **shell script**:
+## To **download, set up, and run Hyperledger Fabric**, execute the following **shell script**:
 
-```sh
-#!/bin/bash
-
-# Step 1: Download Hyperledger Fabric Binaries & Samples
-echo "Downloading Hyperledger Fabric..."
+#### Step 1: Download Hyperledger Fabric Binaries & Samples
+```bash
 curl -sSL https://bit.ly/2ysbOFE | bash -s
+```
 
-# Step 2: Navigate to the Fabric Samples Directory
-cd fabric-samples/test-network || { echo "Directory not found!"; exit 1; }
-
-# Step 3: Start the Test Network
-echo "Starting the Fabric Test Network..."
+#### Step 2: Navigate to the Fabric Samples Directory
+```bash
+cd fabric-samples/test-network 
+```
+#### Step 3: Start the Test Network
+```bash
 ./network.sh up
-
-echo "✅ Hyperledger Fabric is up and running!"
+```
+##### echo "✅ Hyperledger Fabric is up and running!"
