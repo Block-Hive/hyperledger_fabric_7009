@@ -23,13 +23,17 @@ Ensure you have the following installed:
 
 #### 3️⃣ Start the Hyperledger Fabric Network
 ```sh
-cd blockchain
-./startFabric.sh
+cd ~/fabric-samples/test-network 
+```
+```sh
+./network.sh up createChannel
 ```
 
 #### 4️⃣ Install Dependencies
 ```sh
-cd webapp
+cd ../webapp
+```
+```sh
 pip install -r requirements.txt
 ```
 
