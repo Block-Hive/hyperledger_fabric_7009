@@ -26,34 +26,31 @@ The following **one shell script** contains **all necessary steps** to execute b
 # 1️⃣ HELLO WORLD SETUP
 # ==========================
 
-echo "🚀 Setting up Hello World Smart Contract..."
 
 # Step 1: Navigate to the Fabric Test Network
 ```bash
-cd fabric-samples/test-network || { echo "Test Network Not Found!"; exit 1; }
+cd ~/fabric-samples/test-network 
 ```
 
-# Step 2: Start Fabric Network (if not running)
-echo "🔄 Starting Fabric Test Network..."
-./network.sh up
+# Step 2: Start Fabric Network (if not running) adn create channel
 
+```bash
+./network.sh up createChannel
+```
 # Step 3: Deploy Hello World Smart Contract
-echo "📜 Deploying Hello World Smart Contract..."
+
+```bash
 ./network.sh deployCC -ccn hello -ccp ../chaincode/hello-world -ccl go
+```
 
 ![Network-up = chaincode installed](images/BlockchainHelloW1.png)
 
 # Step 4: Interact with Hello World Smart Contract
-echo "📝 Initializing Hello World Ledger..."
-peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
---tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem" \
--C mychannel -n helloworld -c '{"function":"InitLedger","Args":[]}'
 
-![initialised Hello World](images/BlockchainHelloW2.png)
-
-echo "📢 Querying Hello World Ledger..."
+```bash
 peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
-
+```
+![initialised Hello World](images/BlockchainHelloW2.png)
 echo "✅ Hello World Smart Contract Deployed Successfully!"
 
 
@@ -63,24 +60,91 @@ echo "✅ Hello World Smart Contract Deployed Successfully!"
 
 echo "🚀 Setting up Voting System Smart Contract..."
 
-# Step 1: Deploy Voting System Smart Contract
-echo "📜 Deploying Voting System Smart Contract..."
-./network.sh deployCC -ccn voting -ccp ../voting-system/chaincode -ccl go
+# Step 1: Navigate to the Fabric Test Network
+```bash
+cd ~/fabric-samples/test-network 
+```
 
-# Step 2: Interact with Voting System Smart Contract
-echo "🗳️ Initializing Voting System..."
+# Step 2: Start Fabric Network (if not running) adn create channel
+
+```bash
+./network.sh up createChannel
+```
+
+# Step 3: Deploy Voting System Smart Contract
+```bash
+./network.sh deployCC -ccn voting -ccp ../chaincode/voting -ccl go
+```
+![Network-up = chaincode installed](images/BlockchainvotingW1.png)
+
+## Step 4.1: Initialize Ledger (Optional)
+```bash
 peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
---tls --cafile "${PWD}/organizations/ordererOrganizations/example.com/tlsca/tlsca.example.com-cert.pem" \
--C mychannel -n voting -c '{"function":"InitVoting","Args":["Candidate1", "Candidate2"]}'
+  --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+  --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+  --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+  -C mychannel -n voting -c '{"Args":["InitLedger"]}'
 
-echo "📢 Querying Voting Ledger..."
-peer chaincode query -C mychannel -n voting -c '{"function":"GetVotes","Args":[]}'
+```
 
-echo "✅ Voting System Smart Contract Deployed Successfully!"
+## Step 4.2: Register Voters
+```bash
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
+  --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+  --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+  --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+  -C mychannel -n voting -c '{"Args":["RegisterVoter", "Voter1"]}'
+```
+
+![Network-up = chaincode installed](images/BlockchainvotingVoters.png)
+
+
+## Step 4.3: Register Candidates
+```bash
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
+  --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+  --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+  --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+  -C mychannel -n voting -c '{"Args":["RegisterCandidate", "Candidate1", "John Doe"]}'
+```
+
+![Network-up = chaincode installed](images/BlockchainCandidates.png)
+
+
+## Step 4.4: Verify Registered Voters & Candidates
+```bash
+peer chaincode query -C mychannel -n voting -c '{"Args":["GetAllData"]}'
+```
+
+
+![Network-up = chaincode installed](images/BlockchainvotingVotCanCheck.png)
+
+
+
+## Step 4.5: Cast Votes
+```bash
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.example.com \
+  --tls --cafile ${PWD}/organizations/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem \
+  --peerAddresses localhost:7051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt \
+  --peerAddresses localhost:9051 --tlsRootCertFiles ${PWD}/organizations/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt \
+  -C mychannel -n voting -c '{"Args":["Vote", "Voter1", "Candidate1"]}'
+```
+
+![Network-up = chaincode installed](images/BlockchainvotingVoting2.png)
+
+
+
+## Step 4.5: Verify Votes
+```bash
+peer chaincode query -C mychannel -n voting -c '{"Args":["GetAllData"]}'
+```
+
+![Network-up = chaincode installed](images/BlockchainvotingVoting3.png)
 
 
 # ==========================
 # SHUTDOWN INSTRUCTIONS
 # ==========================
-echo "🔴 To stop the network, run:"
-echo "cd fabric-samples/test-network && ./network.sh down"
+```bash
+cd fabric-samples/test-network && ./network.sh down"
+```
