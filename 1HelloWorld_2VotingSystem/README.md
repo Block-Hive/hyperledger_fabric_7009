@@ -44,14 +44,14 @@ cd ~/fabric-samples/test-network
 ./network.sh deployCC -ccn hello -ccp ../chaincode/hello-world -ccl go
 ```
 
-![Network-up = chaincode installed](images/BlockchainHelloW1.png)
+![Network-up = chaincode installed](images/BlockchainHelloW2.png)
 
 #### Step 4: Interact with Hello World Smart Contract
 
 ```bash
 peer chaincode query -C mychannel -n hello -c '{"Args":["HelloWorld"]}'
 ```
-![initialised Hello World](images/BlockchainHelloW2.png)
+![initialised Hello World](images/BlockchainHelloW1.png)
 echo "✅ Hello World Smart Contract Deployed Successfully!"
 
 
