@@ -29,7 +29,9 @@ The following **one shell script** contains **all necessary steps** to execute b
 echo "🚀 Setting up Hello World Smart Contract..."
 
 # Step 1: Navigate to the Fabric Test Network
+```bash
 cd fabric-samples/test-network || { echo "Test Network Not Found!"; exit 1; }
+```
 
 # Step 2: Start Fabric Network (if not running)
 echo "🔄 Starting Fabric Test Network..."
